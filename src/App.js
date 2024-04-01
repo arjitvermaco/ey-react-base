@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AppHeader from "./components/AppHeader";
+import LoginForm from './components/LoginForm'
 function App() {
+
+  let appName = "Orange HRM"
+  let year = 2024;
+  let user = {
+    fullName : "Arjit verma",
+    job :"Trainer"
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppHeader />
+      <LoginForm/>
+      {appName} <br/>
+      <p>FullName: {user.fullName}</p>
+      <p>Job : {user.job}</p>
+      &copy; {year}
+    </>
   );
 }
 
