@@ -1,21 +1,22 @@
-import AppHeader from "./components/AppHeader";
-import LoginForm from './components/LoginForm'
-function App() {
+import Header from "./components/Header";
 
-  let appName = "Orange HRM"
-  let year = 2024;
+function App() {
   let user = {
-    fullName : "Arjit verma",
-    job :"Trainer"
-  }
+    fullName: "Arjit Verma",
+    job: "Trainer",
+  };
+
+  let year = 2024;
+
   return (
     <>
-      <AppHeader />
-      <LoginForm/>
-      {appName} <br/>
-      <p>FullName: {user.fullName}</p>
-      <p>Job : {user.job}</p>
-      &copy; {year}
+      <Header />
+      <h4>User Details</h4>
+      <ul>
+        <li>Full Name : {user.fullName}</li>
+        <li>Job : {user.job}</li>
+      </ul>
+      Current Year : {year}
     </>
   );
 }
