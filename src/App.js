@@ -1,24 +1,13 @@
-import Header from "./components/Header";
+import React from 'react'
+import BookList from './components/BookList'
+import Conditional from './components/Conditional'
+import Conditional2 from './components/Conditional2'
 
-function App() {
-  let user = {
-    fullName: "Arjit Verma",
-    job: "Trainer",
-  };
-
-  let year = 2024;
-
+export default function App() {
   return (
-    <>
-      <Header />
-      <h4>User Details</h4>
-      <ul>
-        <li>Full Name : {user.fullName}</li>
-        <li>Job : {user.job}</li>
-      </ul>
-      Current Year : {year}
-    </>
-  );
+    <div>
+      {/* <BookList/> */}
+      <Conditional2/>
+    </div>
+  )
 }
-
-export default App;
