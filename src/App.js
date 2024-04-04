@@ -1,11 +1,8 @@
 import React from 'react'
-import BookList from './components/BookList'
-import Conditional from './components/Conditional'
-import Conditional2 from './components/Conditional2'
-import EventHandling from './components/EventHandling'
-import UseState from './components/UseState'
-import BasicForm from './components/BasicForm'
-import BasicForm2 from './components/BasicForm2'
+
+import BasicForm3 from './components/BasicForm3'
+import BasicForm4 from './components/BasicForm4'
+import FormValidation from './components/FormValidation'
 
 export default function App() {
   return (
@@ -15,7 +12,8 @@ export default function App() {
       {/* <EventHandling/> */}
       {/* <UseState/> */}
       {/* <BasicForm/> */}
-      <BasicForm2/>
+      {/* <BasicForm4/> */}
+      <FormValidation/>
     </div>
   )
 }
