@@ -1,23 +1,12 @@
+import FormHook from "./components/FormHook";
 import Header from "./components/Header";
+import RegisterUser from "./components/RegisterUser";
 
 function App() {
-  let user = {
-    fullName: "Arjit Verma",
-    job: "Trainer",
-  };
-
-  let year = 2024;
-
   return (
-    <>
-      <Header />
-      <h4>User Details</h4>
-      <ul>
-        <li>Full Name : {user.fullName}</li>
-        <li>Job : {user.job}</li>
-      </ul>
-      Current Year : {year}
-    </>
+    <div className=" bg-[#07749b] min-h-screen">
+      <RegisterUser />
+    </div>
   );
 }
 
