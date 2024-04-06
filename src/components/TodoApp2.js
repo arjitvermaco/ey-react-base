@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import TodoItem from "./TodoItem";
+
 export default function TodoApp2() {
   const {
     register,
@@ -17,7 +18,20 @@ export default function TodoApp2() {
 
     setTodos([...todos,data])
     reset()
+
   }
+
+  function saveTodoToLS(){
+    localStorage.setItem("todos",JSON.stringify(todos))
+  }
+  useEffect(()=>{
+    const todosFromLS = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodos(todosFromLS)
+  },[])
+
+  useEffect(()=>{
+    saveTodoToLS()
+  },[todos])
 
   function changeTodoStatus(todo){
     const newTodos = todos.map((item)=>{
@@ -29,9 +43,30 @@ export default function TodoApp2() {
 
     setTodos(newTodos)
   }
+  // useEffect(()=>{
+  //   saveToLS()
+  //   // getFromLS()
+  // },[])
+
+  // function saveToLS(){
+  //   const myObj = {
+  //     name : "Arjit",
+  //     location : "India"
+  //   }
+  //   const myArray = [1,22,32,32,23434,3,.43,343]
+  //   console.log("Saving to local storage")
+  //   localStorage.setItem("data",JSON.stringify(myArray))
+  // }
+
+  // function getFromLS(){
+  //   //Getting data from LS
+  //   const myData = JSON.parse(localStorage.getItem("data"))
+  //   // const obj = JSON.parse(myData)
+  //   console.log(myData)
+  // }
 
   return <div>
-     <form className="flex flex-col" onSubmit={handleSubmit(handleAddTodo)}>
+     <form className="flex md:flex-col" onSubmit={handleSubmit(handleAddTodo)}>
         <input
           placeholder="Add A New Todo"
           className=" mt-12 border-2 rounded-md p-2 w-[80%] block mx-auto"
@@ -48,7 +83,7 @@ export default function TodoApp2() {
       
       {todos.map((item)=>{
         return (
-            <TodoItem todo={item} changeTodoStatus={changeTodoStatus}/>
+            <TodoItem key={item.todo} todo={item} changeTodoStatus={changeTodoStatus}/>
         )
       })}
 
