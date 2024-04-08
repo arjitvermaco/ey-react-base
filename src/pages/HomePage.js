@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard';
 
 export default function HomePage() {
+ 
   const apiUrl = "https://fakestoreapi.com/products"
   const [products,setProducts] = useState([]);
   const [loading,setLoading] = useState(true);
@@ -22,6 +23,8 @@ export default function HomePage() {
 
   return (
     <div className='flex flex-wrap justify-between'>
+    
+      
       {products.map((product)=>{
         return(
           <ProductCard product={product} key={product.id}/>
