@@ -1,11 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function ProductCard({product,addToCart}) {
+export default function ProductCard({product}) {
   return (
-    <div className='bg-white w-48 p-4 rounded-md flex flex-col items-center mt-12'>
-        <img src={product.image} alt={product.title} className='w-32'/>
-        <h2 className='mt-4'>{product.title}</h2>
-        <button onClick={()=>{addToCart(product)}} className='mt-4 bg-teal-400 p-2 rounded-md'>Add to Cart</button>
+    
+    <div className='w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 shadow-lg p-6 rounded-md mt-8'>
+      <Link to={`/product/${product.id}`}>
+        <img src={product.image} alt={product.title}/>
+        <h2>{product.title}</h2>
+        <h4>${product.price}</h4>
+      </Link>
     </div>
+   
+
   )
 }
