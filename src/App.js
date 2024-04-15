@@ -1,32 +1,41 @@
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/DashboardPage";
-import SettingsPage from "./pages/SettingsPage";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment, reset } from "./store/CounterSlice";
+import Cakes from "./Cakes";
 
-import ProtectedRoute from "./component/ProtectedRoute";
 function App() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
   return (
     <>
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <DashboardPage />
-            </ProtectedRoute>
-          }
-        ></Route>
+      <h1>Counter : {count}</h1>
 
-        <Route
-          path="/settings"
-          element={
-            <ProtectedRoute>
-              <SettingsPage />
-            </ProtectedRoute>
-          }
-        ></Route>
-      </Routes>
+      <button
+        className="bg-blue-500 ml-5 rounded-md text-white p-2"
+        onClick={() => {
+          dispatch(increment());
+        }}
+      >
+        Increment
+      </button>
+      <button
+        className="bg-blue-500 ml-5 rounded-md text-white p-2"
+        onClick={() => {
+          dispatch(decrement());
+        }}
+      >
+        Decrement
+      </button>
+      <button
+        className="bg-blue-500 ml-5 rounded-md text-white p-2"
+        onClick={() => {
+          dispatch(reset());
+        }}
+      >
+        Reset
+      </button>
+
+        <h1 className="text-xl font-bold mt-12">Cake Store</h1>
+        <Cakes/>
     </>
   );
 }
