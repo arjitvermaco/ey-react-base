@@ -1,20 +1,33 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import CatergoryPage from "./pages/CatergoryPage";
-import Header from "./components/Header";
-import ProductPage from "./pages/ProductPage";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import SettingsPage from "./pages/SettingsPage";
 
+import ProtectedRoute from "./component/ProtectedRoute";
 function App() {
-  
   return (
-   <>
-   <Header/>
-    <Routes>
-      <Route path="/" element={<HomePage/>} />
-      <Route path="/category/:id" element={<CatergoryPage/>}/>
-      <Route path="/product/:id" element={<ProductPage/>}/>
-    </Routes>
-   </>
+    <>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <DashboardPage />
+            </ProtectedRoute>
+          }
+        ></Route>
+
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <SettingsPage />
+            </ProtectedRoute>
+          }
+        ></Route>
+      </Routes>
+    </>
   );
 }
 
