@@ -4,9 +4,23 @@ import DashboardPage from "./pages/DashboardPage";
 import SettingsPage from "./pages/SettingsPage";
 
 import ProtectedRoute from "./component/ProtectedRoute";
+import Parent from "./component/Parent";
+import Child from "./component/Child";
 function App() {
   return (
     <>
+
+    {/* <Parent>
+      <Child/>
+    </Parent> */}
+{/* 
+    <Parent/>
+      <Child2/>
+    </Parent> */}
+
+
+   
+
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route
