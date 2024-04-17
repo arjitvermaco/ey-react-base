@@ -3,6 +3,7 @@ import { decrement, increment, reset } from "./store/CounterSlice";
 import Cakes from "./Cakes";
 import Memo from "./Memo";
 import UserComponent from "./UserComponent";
+import AddUser from "./AddUser";
 
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
 
 
     <>
-     <UserComponent/>
+     {/* <UserComponent/> */}
+     <AddUser/>
     {/* <Memo/> */}
       {/* <h1>Counter : {count}</h1>
 
