@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, reset } from "./store/CounterSlice";
 import Cakes from "./Cakes";
+import Memo from "./Memo";
+import UserComponent from "./UserComponent";
 
 function App() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+
   return (
+
+
     <>
-      <h1>Counter : {count}</h1>
+     <UserComponent/>
+    {/* <Memo/> */}
+      {/* <h1>Counter : {count}</h1>
 
       <button
         className="bg-blue-500 ml-5 rounded-md text-white p-2"
@@ -35,7 +40,7 @@ function App() {
       </button>
 
         <h1 className="text-xl font-bold mt-12">Cake Store</h1>
-        <Cakes/>
+        <Cakes/> */}
     </>
   );
 }
